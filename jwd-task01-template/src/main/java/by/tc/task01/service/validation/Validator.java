@@ -6,6 +6,7 @@ public class Validator {
 	
 	public static <E> boolean criteriaValidator(Criteria<E> criteria) {
 		// you may add your own code here
+		
 		return true;
 	}
 

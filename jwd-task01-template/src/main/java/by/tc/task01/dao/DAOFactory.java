@@ -9,7 +9,7 @@ public final class DAOFactory {
 	
 	private DAOFactory() {}
 
-	public ApplianceDAO getApplianceService() {
+	public ApplianceDAO getApplianceDAO() {
 		return applianceDAO;
 	}
 
