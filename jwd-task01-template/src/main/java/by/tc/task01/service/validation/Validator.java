@@ -10,6 +10,8 @@ public class Validator {
 		return true;
 	}
 
+	//TODO проверяет параметры E, например микроволновки. Может создать объект по имени класса Class.forName(className). Должны быть целые числа.
+
 }
 
 //you may add your own new classes
