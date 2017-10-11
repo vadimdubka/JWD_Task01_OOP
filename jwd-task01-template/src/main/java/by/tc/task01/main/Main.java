@@ -14,6 +14,8 @@ import static by.tc.task01.entity.criteria.SearchCriteria.TabletPC;
 import static by.tc.task01.entity.criteria.SearchCriteria.VacuumCleaner.*;
 import static by.tc.task01.entity.criteria.SearchCriteria.VacuumCleaner.CLEANING_WIDTH;
 
+
+// TODO скачать проект с гитхаба и попробовать запустить
 public class Main {
 
 	public static void main(String[] args) {
