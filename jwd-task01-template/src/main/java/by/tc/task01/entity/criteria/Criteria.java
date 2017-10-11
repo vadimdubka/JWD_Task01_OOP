@@ -1,15 +1,11 @@
 package by.tc.task01.entity.criteria;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Criteria<E> {
 
     private String applianceType;
-
-    private Map<E, Object> criteria = new HashMap<E, Object>();
+    private Map<E, Object> criteria = new HashMap<>();
 
     public void add(E searchCriteria, Object value) {
         criteria.put(searchCriteria, value);
@@ -23,11 +19,11 @@ public class Criteria<E> {
         this.applianceType = applianceType;
     }
 
-    public Map<E, Object> getCriteria() { // TODO может можно обойти возвращение всей коллекции
-        return criteria;
+    public Collection<Object> getCriteriaValues() {
+        return criteria.values();
     }
 
-    public List<String> parametersAsString() {
+    public List<String> getCriteriaAsString() {
         ArrayList<String> parameters = new ArrayList<>();
         for (Map.Entry<E, Object> entry : criteria.entrySet()) {
             String parameter = entry.getKey() + "=" + entry.getValue();
@@ -36,5 +32,4 @@ public class Criteria<E> {
 
         return parameters;
     }
-    // you may add your own code here
 }

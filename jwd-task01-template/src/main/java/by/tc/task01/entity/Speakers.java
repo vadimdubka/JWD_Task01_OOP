@@ -68,4 +68,14 @@ public class Speakers extends Appliance{
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Speakers{" +
+                "powerConsumption=" + powerConsumption +
+                ", numberOfSpeakers=" + numberOfSpeakers +
+                ", frequencyRange='" + frequencyRange + '\'' +
+                ", cordLength=" + cordLength +
+                '}';
+    }
 }

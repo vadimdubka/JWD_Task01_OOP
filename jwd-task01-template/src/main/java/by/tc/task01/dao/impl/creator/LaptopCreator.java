@@ -11,11 +11,18 @@ public class LaptopCreator implements Creator {
     @Override
     public Appliance create(String parameters){
 
-        new Laptop();
+        String pattern = "Laptop : BATTERY_CAPACITY=|, OS=|, MEMORY_ROM=|, SYSTEM_MEMORY=|, CPU=|, DISPLAY_INCHS=|;";
+        String[] values = parameters.split(pattern);
 
-        //set
+        Laptop appliance = new Laptop();
+        appliance.setBatteryCapacity(Double.parseDouble(values[1]));
+        appliance.setOs(values[2]);
+        appliance.setMemoryROM(Double.parseDouble(values[3]));
+        appliance.setSystemMemory(Double.parseDouble(values[4]));
+        appliance.setCpu(Double.parseDouble(values[5]));
+        appliance.setDisplayInchs(Double.parseDouble(values[6]));
 
-        return null;
+        return appliance;
     }
 
 }
