@@ -1,11 +1,12 @@
 package by.tc.task01.main;
 
-import static by.tc.task01.entity.criteria.SearchCriteria.*;
-
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.ServiceFactory;
+
+import static by.tc.task01.entity.criteria.SearchCriteria.Oven;
+import static by.tc.task01.entity.criteria.SearchCriteria.TabletPC;
 
 public class Main {
 
@@ -18,10 +19,13 @@ public class Main {
 		//////////////////////////////////////////////////////////////////
 
 		Criteria<Oven> criteriaOven = new Criteria<Oven>();
-		criteriaOven.add(Oven.CAPACITY, 3);
+		criteriaOven.setApplianceType("Oven"); // TODO ЭТУ СТРОКУ Я ДОБАВИЛ САМ НА ОСНОВАНИИ ФОТКИ С КОНСУЛЬТАЦИИ
+		criteriaOven.add(Oven.CAPACITY, 3); // TODO возвратить
+//		criteriaOven.add(Oven.CAPACITY, 32); // TODO удалить
 
 		appliance = service.find(criteriaOven);
 
+//		System.out.println(appliance); // TODO удалить
 		PrintApplianceInfo.print(appliance);
 
 		//////////////////////////////////////////////////////////////////
