@@ -1,6 +1,6 @@
 package by.tc.task01.entity;
 
-public class Laptop extends Appliance{
+public class Laptop extends Appliance {
     private double batteryCapacity;
     private String os;
     private double memoryROM;
@@ -62,7 +62,8 @@ public class Laptop extends Appliance{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Laptop)) return false;
+        if (null==o) return false;
+        if (getClass()!=o.getClass()) return false;
 
         Laptop laptop = (Laptop) o;
 

@@ -44,7 +44,8 @@ public class Speakers extends Appliance{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Speakers)) return false;
+        if (null==o) return false;
+        if (getClass()!=o.getClass()) return false;
 
         Speakers speakers = (Speakers) o;
 

@@ -1,15 +1,16 @@
-package by.tc.task01.dao.impl.creator;// Created by sky-vd on 10.10.2017.
+package by.tc.task01.dao.impl.creator;
 
 import by.tc.task01.dao.Creator;
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.Oven;
 
-//TODO где правильно разместить данный класс
-//TODO где правильно разместить данный класс
 public class OvenCreator implements Creator {
 
+    public OvenCreator() {
+    }
+
     @Override
-    public Appliance create(String parameters) {
+    public Appliance createAppliance(String parameters) {
         String pattern = "Oven : POWER_CONSUMPTION=|, WEIGHT=|, CAPACITY=|, DEPTH=|, HEIGHT=|, WIDTH=|;";
         String[] values = parameters.split(pattern);
 

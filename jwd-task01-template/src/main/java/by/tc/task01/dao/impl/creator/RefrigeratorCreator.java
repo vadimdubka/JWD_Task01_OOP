@@ -1,12 +1,16 @@
-package by.tc.task01.dao.impl.creator;// Created by sky-vd on 10.10.2017.
+package by.tc.task01.dao.impl.creator;
 
 import by.tc.task01.dao.Creator;
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.Refrigerator;
 
 public class RefrigeratorCreator implements Creator {
+
+    public RefrigeratorCreator() {
+    }
+
     @Override
-    public Appliance create(String parameters) {
+    public Appliance createAppliance(String parameters) {
         String pattern = "Refrigerator : POWER_CONSUMPTION=|, WEIGHT=|, FREEZER_CAPACITY=|, OVERALL_CAPACITY=|, HEIGHT=|, WIDTH=|;";
         String[] values = parameters.split(pattern);
 

@@ -5,7 +5,6 @@ import by.tc.task01.dao.impl.creator.*;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO возмоно сделать синглтоном
 public class CreatorDirector {
     private Map<String, Creator> map = new HashMap<>();
 
@@ -19,12 +18,7 @@ public class CreatorDirector {
     }
 
     public Creator getCreator(String applianceType) {
-
-        Creator creator;
-
-        creator = map.get(applianceType);
-
+        Creator creator = map.get(applianceType);
         return creator;
-
     }
 }

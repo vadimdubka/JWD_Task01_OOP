@@ -53,7 +53,8 @@ public class TabletPC extends Appliance{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof TabletPC)) return false;
+        if (null==o) return false;
+        if (getClass()!=o.getClass()) return false;
 
         TabletPC tabletPC = (TabletPC) o;
 

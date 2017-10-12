@@ -12,48 +12,57 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-//TODO проверить модификаторы у полей
 public class ApplianceDAOImpl implements ApplianceDAO {
 
     private CreatorDirector creatorDirector = new CreatorDirector();
 
     @Override
     public <E> Appliance find(Criteria<E> criteria) {
-        String applianceInDB = findApplianceInDB(criteria);
-        if (applianceInDB == null) {
+        String applianceDescription = findLineInDB(criteria);
+        if (applianceDescription == null) {
             return null;
         }
 
         Creator creator = creatorDirector.getCreator(criteria.getApplianceType());
-        Appliance appliance = creator.create(applianceInDB);
+        Appliance appliance = creator.createAppliance(applianceDescription);
 
         return appliance;
     }
 
-    private <E> String findApplianceInDB(Criteria<E> criteria) {
+    /** Метод ищет в БД строку, описывающую прибор, соответствующий критериям.*/
+    private <E> String findLineInDB(Criteria<E> criteria) {
+
+        String fileName = "src\\main\\resources\\appliances_db.txt";
+        BufferedReader reader = null;
+
         try {
-            String fileName = "src\\main\\resources\\appliances_db.txt";
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            reader = new BufferedReader(new FileReader(fileName));
             String line;
 
-            while (reader.ready()) {
-                line = reader.readLine();
-
-                if (search(criteria, line)) {
+            while ((line = reader.readLine())!=null) {
+                if (checkLine(criteria, line)) {
                     return line;
                 }
             }
-
             return null;
         } catch (FileNotFoundException e) {
             System.err.println("Database is not available.");
         } catch (IOException e) {
             System.err.println(" I/O exception of some sort has occurred.");
+        } finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                System.err.println("Can't close reader.");
+            }
         }
         return null;
     }
 
-    private <E> boolean search(Criteria<E> criteria, String line) {
+    /** Метод проверяет строку на соответствие списку критериев.*/
+    private <E> boolean checkLine(Criteria<E> criteria, String line) {
 
         String startLinePattern = String.format("^(%s) : .*", criteria.getApplianceType());
         if (!line.matches(startLinePattern)) {

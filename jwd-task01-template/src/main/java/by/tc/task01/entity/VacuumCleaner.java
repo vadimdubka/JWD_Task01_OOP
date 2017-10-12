@@ -62,16 +62,17 @@ public class VacuumCleaner extends Appliance{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof VacuumCleaner)) return false;
+        if (null==o) return false;
+        if (getClass()!=o.getClass()) return false;
 
-        VacuumCleaner that = (VacuumCleaner) o;
+        VacuumCleaner vacuumCleaner = (VacuumCleaner) o;
 
-        if (Double.compare(that.powerConsumption, powerConsumption) != 0) return false;
-        if (Double.compare(that.motorSpeedRegulation, motorSpeedRegulation) != 0) return false;
-        if (Double.compare(that.cleaningWidth, cleaningWidth) != 0) return false;
-        if (filterType != null ? !filterType.equals(that.filterType) : that.filterType != null) return false;
-        if (bagType != null ? !bagType.equals(that.bagType) : that.bagType != null) return false;
-        return wandType != null ? wandType.equals(that.wandType) : that.wandType == null;
+        if (Double.compare(vacuumCleaner.powerConsumption, powerConsumption) != 0) return false;
+        if (Double.compare(vacuumCleaner.motorSpeedRegulation, motorSpeedRegulation) != 0) return false;
+        if (Double.compare(vacuumCleaner.cleaningWidth, cleaningWidth) != 0) return false;
+        if (filterType != null ? !filterType.equals(vacuumCleaner.filterType) : vacuumCleaner.filterType != null) return false;
+        if (bagType != null ? !bagType.equals(vacuumCleaner.bagType) : vacuumCleaner.bagType != null) return false;
+        return wandType != null ? wandType.equals(vacuumCleaner.wandType) : vacuumCleaner.wandType == null;
 
     }
 

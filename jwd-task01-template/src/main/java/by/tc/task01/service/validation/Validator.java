@@ -6,7 +6,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Validator {
-    // TODO исходим из дого, что все числа - double ?
+
+    public Validator() {
+    }
+
     public static <E> boolean criteriaValidator(Criteria<E> criteria) {
 
         Set<Object> criteriaValues = new HashSet<>(criteria.getCriteriaValues());

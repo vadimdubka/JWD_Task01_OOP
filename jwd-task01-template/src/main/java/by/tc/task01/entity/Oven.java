@@ -1,5 +1,5 @@
 package by.tc.task01.entity;
-//TODO посмотреть, все ли методы и конструкторы, модификаторы доступа согласно beanConvention
+
 public class Oven extends Appliance {
     private double powerConsumption;
     private double weight;
@@ -60,9 +60,10 @@ public class Oven extends Appliance {
     }
 
     @Override
-    public boolean equals(Object o) { //TODO посмотреть, правильно ли переопределен метод
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Oven)) return false;
+        if (null==o) return false;
+        if (getClass()!=o.getClass()) return false;
 
         Oven oven = (Oven) o;
 
@@ -76,7 +77,7 @@ public class Oven extends Appliance {
     }
 
     @Override
-    public int hashCode() { //TODO посмотреть, правильно ли переопределен метод
+    public int hashCode() {
         int result;
         long temp;
         temp = Double.doubleToLongBits(powerConsumption);
