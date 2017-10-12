@@ -114,7 +114,6 @@ public class Main {
         criteriaTabletPC2.add(SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY, 6);
 
         appliance = service.find(criteriaTabletPC2);
-
         PrintApplianceInfo.print(appliance);
 
         //////////////////////////////////////////////////////////////////

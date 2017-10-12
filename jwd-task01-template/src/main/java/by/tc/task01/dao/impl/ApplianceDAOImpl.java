@@ -32,7 +32,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
     /** Метод ищет в БД строку, описывающую прибор, соответствующий критериям.*/
     private <E> String findLineInDB(Criteria<E> criteria) {
 
-        String fileName = "src\\main\\resources\\appliances_db.txt";
+        String fileName = "src/main/resources/appliances_db.txt";
         BufferedReader reader = null;
 
         try {
