@@ -14,6 +14,8 @@ import java.util.List;
 
 public class ApplianceDAOImpl implements ApplianceDAO {
 
+    private final String fileName = "src/main/resources/appliances_db.txt";
+
     private CreatorDirector creatorDirector = new CreatorDirector();
 
     @Override
@@ -29,17 +31,18 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         return appliance;
     }
 
-    /** Метод ищет в БД строку, описывающую прибор, соответствующий критериям.*/
+    /**
+     * Метод ищет в БД строку, описывающую прибор, соответствующий критериям.
+     */
     private <E> String findLineInDB(Criteria<E> criteria) {
 
-        String fileName = "src/main/resources/appliances_db.txt";
         BufferedReader reader = null;
 
         try {
             reader = new BufferedReader(new FileReader(fileName));
             String line;
 
-            while ((line = reader.readLine())!=null) {
+            while ((line = reader.readLine()) != null) {
                 if (checkLine(criteria, line)) {
                     return line;
                 }
@@ -61,7 +64,9 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         return null;
     }
 
-    /** Метод проверяет строку на соответствие списку критериев.*/
+    /**
+     * Метод проверяет строку на соответствие списку критериев.
+     */
     private <E> boolean checkLine(Criteria<E> criteria, String line) {
 
         String startLinePattern = String.format("^(%s) : .*", criteria.getApplianceType());
