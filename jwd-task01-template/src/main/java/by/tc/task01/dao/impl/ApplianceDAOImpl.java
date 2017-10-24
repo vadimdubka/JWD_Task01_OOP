@@ -8,13 +8,15 @@ import by.tc.task01.entity.criteria.Criteria;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.List;
 
 public class ApplianceDAOImpl implements ApplianceDAO {
 
-    private final String fileName = "src/main/resources/appliances_db.txt";
+    private final static String resourceAddress = "/appliances_db.txt";
+    private final static URL resourceURL = ApplianceDAOImpl.class.getResource(resourceAddress);
 
     private CreatorDirector creatorDirector = new CreatorDirector();
 
@@ -35,11 +37,10 @@ public class ApplianceDAOImpl implements ApplianceDAO {
      * Метод ищет в БД строку, описывающую прибор, соответствующий критериям.
      */
     private <E> String findLineInDB(Criteria<E> criteria) {
-
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new FileReader(fileName));
+            reader = new BufferedReader(new InputStreamReader(resourceURL.openStream()));
             String line;
 
             while ((line = reader.readLine()) != null) {
